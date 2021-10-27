@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter as Router,Route}  from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch}  from 'react-router-dom'
 import {Card, CardBody, CardTitle, Container,Row,Col} from 'reactstrap'
 import {ToastContainer} from 'react-toastify'
 import Menu from './components/Menu'
@@ -22,8 +22,14 @@ function App() {
               </Col>
               </Row>
               <Row>
+                </Row>
+              <Row>
                 <Col>
-                <Route Path="/" component={AllCustomers} />
+                <Router>
+                <Route Path="/" component={AllCustomers} exact ></Route>
+                <Route Path ="/customers"  component={CreateCustomers} exact ></Route>
+                <Route Path ="/update/customers"  component={UpdateCustomers} exact ></Route>
+                </Router>
                 </Col>
                 </Row>
                 </Container>
